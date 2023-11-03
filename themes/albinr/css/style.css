@@ -22,7 +22,6 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
 }
 
 .main {
@@ -32,7 +31,9 @@ body {
 .header, .footer {
     flex: 0 0 auto;
 }
-.nav li {
+
+/* lesson test */
+/* .nav li {
     background-color: red;
 }
 
@@ -46,14 +47,13 @@ body {
 
 .nav li:hover {
     background-color: green;
-}
+} */
 
 /* Header */
 
 .header, .site-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 /* Title */
@@ -84,14 +84,17 @@ body {
 
 /* Main */
 .main{
-    /* width: 80%; */
+    max-width: 800px;
     margin: 0 auto;
+}
+
+.me{
+    border-radius: 100%;
 }
 
 
 /* Test boxes */
-
-.first-box{
+/* .first-box{
     box-sizing: content-box;
     width: 600px;
     height: 100px;
@@ -121,7 +124,7 @@ body {
     height: 100px;
     background-color: #0f0;
     color: #fff;
-}
+} */
 
 
 /* Footer */

@@ -6,10 +6,6 @@ Description: Test page.
 Test page
 ==========================
 
-The source for this page is in `content/index.md`. hello dude test
-
-This is a sample home page written in markdown with some frontmatter defined. Hello dude
-
 <div class="first-box">
     <p> 
     box-sizing: content-box;
