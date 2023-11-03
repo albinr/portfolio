@@ -3,14 +3,11 @@ Title: Albin Ryberg
 Description: This is our index page.
 ---
 
-Om mig 
-==========================
+#Hej, 
 
-Hej, jag heter Albin Ryberg och är 23 år gammal.
-
+jag heter Albin Ryberg och är 23 år gammal.
 
 Jag kommer från Stockholm men bor nu i Karlskrona för att studera webbprogrammering.
-
 
 När jag inte sitter framför datorn och pluggar eller spelar så gillar jag att träna på gym.
 

@@ -8,13 +8,4 @@ Social:
     - title: Link till linkedin profil.
       url: https://www.linkedin.com/in/albin-ryberg/
       icon: linkedin
-    - title: Link till linkedin profil.
-      url: https://www.linkedin.com/in/albin-ryberg/
-      icon: linkedin
-    - title: Link till linkedin profil.
-      url: https://www.linkedin.com/in/albin-ryberg/
-      icon: linkedin
-    - title: Link till linkedin profil.
-      url: https://www.linkedin.com/in/albin-ryberg/
-      icon: linkedin
 ---
