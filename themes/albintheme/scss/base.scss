@@ -9,12 +9,12 @@ body{
     width: 10px;
 }
 
-  /* Track */
+/* Track */
 ::-webkit-scrollbar-track {
     background: $background-color;
 }
 
-  /* Handle */
+/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
@@ -23,7 +23,7 @@ body{
 
 }
 
-  /* Handle on hover */
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }

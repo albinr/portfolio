@@ -17,11 +17,20 @@ p, td, th, li, dd {
     word-wrap: break-word;
     margin-top: 0.2em;
     margin-bottom: 0.9em;
+    font-size: 1.1rem;
+}
+
+a{
+    color: $accent-color;
+}
+
+a:hover{
+    color: $light-accent-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    // letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 1.1em;
     margin-top: 1em;
     font-weight: bold;

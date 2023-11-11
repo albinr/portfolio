@@ -6438,10 +6438,20 @@ p, td, th, li, dd {
   word-wrap: break-word;
   margin-top: 0.2em;
   margin-bottom: 0.9em;
+  font-size: 1.1rem;
+}
+
+a {
+  color: #194989;
+}
+
+a:hover {
+  color: #97c4ff;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
   margin-bottom: 1.1em;
   margin-top: 1em;
   font-weight: bold;
@@ -6512,7 +6522,7 @@ body {
 
 .me-img {
   display: inline-block;
-  width: 60%;
+  max-width: 80%;
   margin: auto 0;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -6520,8 +6530,8 @@ body {
 
 /* Main */
 .main {
-  width: 80%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 1em auto;
 }
 
 .header {
@@ -6545,18 +6555,31 @@ body {
   text-decoration: none;
 }
 
+.nav li {
+  padding: 0;
+  margin: 0;
+}
+
 .nav a {
   font-weight: bold;
   font-size: 1.1rem;
+  padding: 0.5em;
   text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  transition: all 0.3s;
 }
 
 .nav a:hover {
-  color: #9b9b9b;
+  color: #858585;
+  border-left: 2px solid #194989;
+  border-right: 2px solid #194989;
 }
 
 .nav .active a {
-  color: #193ddb;
+  color: #194989;
+  border-left: 2px solid #194989;
+  border-right: 2px solid #194989;
 }
 
 .title * {
@@ -6572,7 +6595,7 @@ body {
   max-height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #193ddb;
+  border: 2px solid #194989;
 }
 
 .logo img {
@@ -6670,7 +6693,7 @@ tr {
 }
 
 .nav ul li {
-  padding: 0 1em;
+  padding: 0 0.5em;
 }
 
 .nav a, .nav-toggle {
@@ -6696,7 +6719,7 @@ tr {
   }
   .nav ul li a {
     display: block;
-    padding: 0.5em 0;
+    padding: 0.5em;
   }
   .js .nav-toggle {
     display: block;
