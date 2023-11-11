@@ -1,3 +1,8 @@
+.slide {
+    overflow-y: hidden !important;
+    transition: height 0.5s ease-in !important;
+}
+
 .nav ul {
     display: flex;
     justify-content: flex-end;
@@ -9,8 +14,7 @@
     padding: 0 1em;
 }
 
-.nav a,
-.nav-toggle {
+.nav a, .nav-toggle {
     color: #333;
 }
 
@@ -49,4 +53,8 @@
         text-align: center;
         cursor: pointer;
     }
+}
+
+.hidden {
+    display: none !important;
 }

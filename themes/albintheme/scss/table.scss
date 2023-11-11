@@ -1,0 +1,19 @@
+table{
+    // border: 1px solid $gray-color;
+    border-collapse: collapse;
+    margin: 1em 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th {
+    background-color: $gray-color;
+}
+
+td, th{
+    padding: 0.5em;
+}
+
+tr{
+    border-bottom: 1px solid $gray-color;
+}

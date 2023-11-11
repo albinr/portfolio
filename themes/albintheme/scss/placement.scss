@@ -1,0 +1,26 @@
+/* Placement */
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.header, .footer {
+    flex: 0 0 auto;
+}
+
+.me-img {
+    display: inline-block;
+    width: 60%;
+    margin: auto 0;
+    border-radius: 8px;
+    border: 1px solid $gray-color;
+}

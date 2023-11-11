@@ -3,7 +3,6 @@ Title: Albin Ryberg
 Description: This is our index page.
 ---
 
-![me](%assets_url%/img/me.jpg "Image of me") {.me}
 
 #Hej, 
 
@@ -15,3 +14,4 @@ När jag inte sitter framför datorn och pluggar eller spelar så gillar jag att
 
 Jag ser fram emot att lära mig hur jag designar och skriver smart css för webbsidor.
 
+![me](%assets_url%/img/me-at-summit.jpg "Image of me in Norway") {.me-img}

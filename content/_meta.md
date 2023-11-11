@@ -1,11 +1,11 @@
 ---
 Logo: image/me.jpg
-Tagline: My portfolio.
+Tagline:
 Social:
     - title: Link till sidans github repo.
-      url: https://github.com/albinr/portfolio
-      icon: github
+      url: https://github.com/albinr/portfolio/
+      icon: fab fa-github
     - title: Link till linkedin profil.
       url: https://www.linkedin.com/in/albin-ryberg/
-      icon: linkedin
+      icon: fab fa-linkedin
 ---
