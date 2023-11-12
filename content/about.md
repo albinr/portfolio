@@ -12,4 +12,5 @@ For the html structure we use Twig to output variables in html. With this we can
 
 The styling of the webb site is done with Sass. Sass is a CSS pre-processor that adds the ability to use variables, modules and more. 
 
-I use two fonts that i import from Google Fonts, Montserrat for headings and Work Sans for the paragraph text. I will probably change fonts in the future because i think they look too similar.
+I use two fonts that i downloaded from Google Fonts, Montserrat for headings and Work Sans for the paragraph text. I will probably change fonts in the future because i think they look too similar. In the assets folder i have a folder dedicated to the different fonts i use and others i have experimented with. Right now there are four fonts in there.
+

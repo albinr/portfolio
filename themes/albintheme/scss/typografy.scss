@@ -1,12 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans&display=swap');
+
+// @font-face {
+//     font-family: 'Inter', sans-serif;
+//     src: url('../../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     // font-family: 'Source Sans 3', sans-serif;
+//     font-family: 'Source Code Pro', monospace;
+//     src: url('../../../assets/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('../../../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans', sans-serif;
+    src: url('../../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     font-family: 'Work Sans', sans-serif;
+    // font-family: 'Inter', sans-serif;
 
 }
 
 body {
-    font-family: sans-serif;
+    // font-family: 'Inter', sans-serif;
+    // font-family: 'Source Sans 3', sans-serif;
+
     line-height: 1.5rem;
     color: $font-color;
 }
@@ -15,8 +46,8 @@ p, td, th, li, dd {
     text-align: justify;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    margin-top: 0.2em;
-    margin-bottom: 0.9em;
+    margin-top: 0.3em;
+    margin-bottom: 1em;
     font-size: 1.1rem;
 }
 
@@ -30,7 +61,7 @@ a:hover{
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
+    // font-family: 'Source Code Pro', monospace;
     margin-bottom: 1.1em;
     margin-top: 1em;
     font-weight: bold;

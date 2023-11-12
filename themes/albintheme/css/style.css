@@ -2,7 +2,6 @@
  * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans&display=swap");
 .fa,
 .fas,
 .far,
@@ -6422,12 +6421,23 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Work Sans", sans-serif;
+  src: url("../../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   font-family: "Work Sans", sans-serif;
 }
 
 body {
-  font-family: sans-serif;
   line-height: 1.5rem;
   color: #333;
 }
@@ -6436,8 +6446,8 @@ p, td, th, li, dd {
   text-align: justify;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  margin-top: 0.2em;
-  margin-bottom: 0.9em;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
   font-size: 1.1rem;
 }
 
@@ -6451,7 +6461,6 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
-  letter-spacing: 1px;
   margin-bottom: 1.1em;
   margin-top: 1em;
   font-weight: bold;
