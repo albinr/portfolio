@@ -26,6 +26,15 @@
     .header {
         flex-direction: column;
     }
+    
+    .site-header{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .title, .logo{
+        margin: 0;
+    }
 
     .nav ul {
         flex-direction: column;
@@ -47,8 +56,8 @@
         display: block;
         float: right;
         width: 2em;
-        margin: 0.6667em 0;
-        font-size: 1.5rem;
+        // margin: 0.6667em 0;
+        font-size: 1.6rem;
         line-height: 2em;
         text-align: center;
         cursor: pointer;

@@ -1,42 +1,63 @@
-
-// @font-face {
-//     font-family: 'Inter', sans-serif;
-//     src: url('../../../assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     // font-family: 'Source Sans 3', sans-serif;
-//     font-family: 'Source Code Pro', monospace;
-//     src: url('../../../assets/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
+// Montserrat
+// ----------------------------------------------------------------------------------------------------
 
 @font-face {
-    font-family: 'Montserrat', sans-serif;
-    src: url('../../../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Montserrat';
+    src: url('../../../assets/fonts/Montserrat/static/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
 }
 
 @font-face {
-    font-family: 'Work Sans', sans-serif;
-    src: url('../../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Montserrat';
+    src: url('../../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
 }
 
-* {
-    font-family: 'Work Sans', sans-serif;
-    // font-family: 'Inter', sans-serif;
-
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../../assets/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
 }
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../../assets/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+// Work Sans 
+// ----------------------------------------------------------------------------------------------------
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../../../assets/fonts/Work_Sans/static/WorkSans-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../../../assets/fonts/Work_Sans/static/WorkSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../../../assets/fonts/Work_Sans/static/WorkSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../../../assets/fonts/Work_Sans/static/WorkSans-Bold.ttf') format('truetype');
+    font-weight: 600;
+}
+
 
 body {
     // font-family: 'Inter', sans-serif;
     // font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
 
     line-height: 1.5rem;
     color: $font-color;
@@ -61,11 +82,18 @@ a:hover{
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    // font-family: 'Source Code Pro', monospace;
-    margin-bottom: 1.1em;
+    margin-bottom: 1em;
     margin-top: 1em;
-    font-weight: bold;
+    font-weight: 600;
 }
+
+// h1 {
+//     border-bottom: 1px solid $accent-color;
+// }
+
+// h2 {
+//     border-bottom: 1px solid $gray-color;
+// }
 
 img {
     max-width: 100%;
