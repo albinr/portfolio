@@ -6472,8 +6472,8 @@ p, td, th, li, dd {
   text-align: justify;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  margin-top: 0.3em;
-  margin-bottom: 1em;
+  margin-top: 16px;
+  margin-bottom: 32px;
   font-size: 1.1rem;
 }
 
@@ -6569,6 +6569,12 @@ body {
   margin: 1em auto;
 }
 
+@media (max-width: 767px) {
+  .main {
+    width: 100%;
+    margin: 1em 0;
+  }
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -6598,21 +6604,16 @@ body {
   font-size: 1.1rem;
   padding: 0.5em 0;
   text-decoration: none;
-  border: 2px solid #fff;
-  border-radius: 16px;
   transition: all 0.3s;
 }
 
 .nav a:hover {
   color: #858585;
-  border-left: 2px solid #194989;
-  border-right: 2px solid #194989;
+  text-shadow: 0 0 5px #97c4ff;
 }
 
 .nav .active a {
   color: #194989;
-  border-left: 2px solid #194989;
-  border-right: 2px solid #194989;
 }
 
 .title * {
@@ -6633,7 +6634,6 @@ body {
   max-height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid #194989;
 }
 
 .logo img {

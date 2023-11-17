@@ -1,5 +1,12 @@
 /* Main */
 .main{
     width: 85%;
-    margin: 1em auto;
+    margin: 1.5em auto;
+}
+
+@media (max-width: 767px) {
+    .main{
+        width: 100%;
+        margin: 1.5em 0;
+    }
 }

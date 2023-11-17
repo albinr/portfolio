@@ -1,0 +1,96 @@
+/* technology.scss */
+.landingpage {
+    display: grid;
+    gap: 1em 1em;
+}
+
+.landingpage h1 {
+    grid-column: span 3;
+    justify-self: center;
+}
+
+.box {
+    border: 1px solid $gray-color;
+    border-radius: 8px;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.box a{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.css,
+.php,
+.git {
+    grid-column: span 1;
+}
+
+.html,
+.jscript,
+.sqlite {
+    grid-column: span 2;
+}
+
+.python {
+    grid-column: span 3;
+}
+
+
+.single-technology {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.tech-menu {
+    // max-width: 30%;
+    border: 1px solid $gray-color;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.tech-menu h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.tech-menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.tech-menu li {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    padding: 4px 0;
+}
+
+.tech-menu a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+
+.tech-content {
+    max-width: 65%;
+}
+
+@media (max-width: 767px) {
+    .css,
+    .php,
+    .git,
+    .html,
+    .jscript,
+    .sqlite {
+        grid-column: span 3;
+    }
+
+}

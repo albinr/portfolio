@@ -3,9 +3,15 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    margin-top: 20px;
-    padding: 0 10px;
+    margin-top: 10px;
+    padding: 0 12px;
     border-top: 1px solid $gray-color;
+    border-left: 1px solid $gray-color;
+    border-right: 1px solid $gray-color;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
+
 }
 
 .footer p{

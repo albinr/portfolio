@@ -67,8 +67,8 @@ p, td, th, li, dd {
     text-align: justify;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    margin-top: 0.3em;
-    margin-bottom: 1em;
+    margin-top: 16px;
+    margin-bottom: 32px;
     font-size: 1.1rem;
 }
 
@@ -87,24 +87,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-// h1 {
-//     border-bottom: 1px solid $accent-color;
-// }
-
-// h2 {
-//     border-bottom: 1px solid $gray-color;
-// }
-
 img {
     max-width: 100%;
 }
 
 ol, ul {
     padding-left: 1.5em;
-}
-
-.hidden {
-    display: none !important;
 }
 
 html, body {
