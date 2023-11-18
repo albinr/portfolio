@@ -17,7 +17,7 @@
     justify-content: center;
 }
 
-.box a{
+.box a {
     text-decoration: none;
     font-size: 1.3rem;
 }
@@ -48,9 +48,14 @@
 }
 
 .tech-menu {
-    // max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
     border: 1px solid $gray-color;
-    padding: 10px;
+    padding: 16px;
+    // margin-top: 20px;
     border-radius: 8px;
 }
 
@@ -80,7 +85,7 @@
 
 
 .tech-content {
-    max-width: 65%;
+    width: 65%;
 }
 
 @media (max-width: 767px) {
@@ -91,6 +96,21 @@
     .jscript,
     .sqlite {
         grid-column: span 3;
+    }
+
+    .single-technology {
+        flex-direction: column;
+        justify-content: flex-start;
+        // align-items: center;
+
+    }
+
+    .tech-menu {
+        width: 100%;
+    }
+
+    .tech-content {
+        width: 100%;
     }
 
 }

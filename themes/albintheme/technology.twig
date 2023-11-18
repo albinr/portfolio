@@ -6,7 +6,7 @@
     <div class="main" role="main">
         <div class="single-technology">
             <div class="tech-menu">
-                <h2>Technologies</h2>
+                <h3>Technologies</h3>
                 <ul>
                     {% for page in pages("technology")|sort_by("time")|reverse if not page.hidden %}
                     <li><a href="{{ page.url }}">{{ page.title }}</a></li>
