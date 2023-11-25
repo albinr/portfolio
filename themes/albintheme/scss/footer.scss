@@ -5,13 +5,12 @@
     height: 60px;
     margin-top: 10px;
     padding: 0 12px;
+    background-color: $surface;
     border-top: 1px solid $gray-color;
     border-left: 1px solid $gray-color;
     border-right: 1px solid $gray-color;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
-
-
 }
 
 .footer p{
@@ -20,9 +19,11 @@
 }
 
 .footer a {
-    color: #222;
+    color: $font-color;
+    text-decoration: none;
 }
 
 .footer .social {
     font-size: 2rem;
+    text-decoration: none;
 }

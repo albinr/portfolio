@@ -27,6 +27,14 @@
                         <a href="{{ page.url }}">{{ page.title }}</a>
                     </li>
                 {% endfor %}
+                {# <li><a href="?action=theme">Swap theme</a></li> #}
+                <li><a href="?action=theme" role="button">
+                {% if config.session.theme == "dark" %}
+                <i class="fas fa-toggle-off"></i>
+                {% else %}
+                <i class="fas fa-toggle-on"></i>
+                {% endif %}
+                </a></li>
             </ul>
         </div>
     </div>

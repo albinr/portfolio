@@ -4,6 +4,7 @@
     align-items: center;
     padding: 0.5em;
     border: 1px solid $gray-color;
+    background-color: $surface;
     border-radius: 8px;
     margin: 10px 0;
 
@@ -29,20 +30,17 @@
     font-size: 1.1rem;
     padding: 0.5em 0;
     text-decoration: none;
-    // border: 2px solid $background-color;
     transition: all 0.3s;
-
+    color: $font-color;
 }
 
 .nav a:hover{
-    color: $font-alt-color;
+    color: $light-accent-color;
     text-shadow: 0 0 5px $light-accent-color;
 }
 
 .nav .active a{
     color: $accent-color;
-    // border-left: 2px solid $accent-color;
-    // border-right: 2px solid $accent-color;
 }
 
 .title *{

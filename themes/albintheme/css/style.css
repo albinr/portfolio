@@ -6490,6 +6490,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
   margin-top: 1em;
   font-weight: 600;
+  line-height: 5px;
 }
 
 img {
@@ -6498,10 +6499,6 @@ img {
 
 ol, ul {
   padding-left: 1.5em;
-}
-
-.hidden {
-  display: none !important;
 }
 
 html, body {
@@ -6566,13 +6563,120 @@ body {
 /* Main */
 .main {
   width: 85%;
-  margin: 1em auto;
+  margin: 1.5em auto;
 }
 
 @media (max-width: 767px) {
   .main {
     width: 100%;
-    margin: 1em 0;
+    margin: 1.5em 0;
+  }
+}
+/* technology.scss */
+.landingpage {
+  display: grid;
+  gap: 1em 1em;
+}
+
+.landingpage h1 {
+  grid-column: span 3;
+  justify-self: center;
+}
+
+.box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.box a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.css,
+.php,
+.git {
+  grid-column: span 1;
+}
+
+.html,
+.jscript,
+.sqlite {
+  grid-column: span 2;
+}
+
+.python {
+  grid-column: span 3;
+}
+
+.single-technology {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tech-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.tech-menu h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.tech-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.tech-menu li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  padding: 4px 0;
+}
+
+.tech-menu a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.tech-content {
+  width: 65%;
+}
+
+@media (max-width: 767px) {
+  .css,
+  .php,
+  .git,
+  .html,
+  .jscript,
+  .sqlite {
+    grid-column: span 3;
+  }
+  .single-technology {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .tech-menu {
+    width: 100%;
+  }
+  .tech-content {
+    width: 100%;
   }
 }
 .header {
@@ -6646,9 +6750,13 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  margin-top: 20px;
-  padding: 0 10px;
+  margin-top: 10px;
+  padding: 0 12px;
   border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 .footer p {
