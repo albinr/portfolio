@@ -18,3 +18,7 @@ td, th{
 tr{
     border-bottom: 1px solid $gray-color;
 }
+
+.table-wrapper{
+    overflow-x: auto;
+}
