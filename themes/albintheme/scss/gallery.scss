@@ -1,6 +1,6 @@
 .gallery {
     display: grid;
-    gap: 1fr 1fr;
+    gap: 10px 10px;
     margin-bottom: 10px;
 }
 
@@ -10,9 +10,10 @@
 }
 
 .image-box {
-    // height: 260px;
+    height: 260px;
     // width: 260px;
     grid-column: span 1;
+    grid-row: span 1;
     border: 1px solid transparent;
     border-radius: 8px;
     overflow: hidden;
