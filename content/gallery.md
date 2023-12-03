@@ -44,7 +44,7 @@ Description: This is our gallery page.
     <a href="image/squat-gym.jpg" class="image-box">
         <picture>
             <source media="(min-width: 767px)" srcset="image/squat-gym.jpg?w=367&h=367&crop-to-fit, image/squat-gym.jpg?w=650&h=650&crop-to-fit 2x">
-            <img src="image/squat-gym?w=766&h=766&crop-to-fit" alt="squat rack">
+            <img src="image/squat-gym.jpg?w=766&h=766&crop-to-fit" alt="squat rack">
         </picture>
     </a>
     <a href="image/nallo.jpg" class="image-box">
