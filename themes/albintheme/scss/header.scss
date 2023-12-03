@@ -61,6 +61,7 @@
     max-height: 60px;
     border-radius: 50%;
     overflow: hidden;
+    filter: drop-shadow(0 0 0.85rem $accent-color);
     // border: 2px solid $accent-color;
 }
 

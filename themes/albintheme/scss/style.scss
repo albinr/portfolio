@@ -15,12 +15,14 @@ $fa-font-path: '../../shared/fontawesome/webfonts';
 
 @import 'header';
 @import 'footer';
+@import 'gallery';
 
 
 @import 'blockquotes';
 @import 'code';
 @import 'table';
 @import 'mobile-menu';
+@import 'iframe';
 
 
 * {
@@ -34,8 +36,7 @@ ol, ul {
     padding-left: 1.5em;
 }
 
-
-
 html, body {
     height: 100%;
 }
+

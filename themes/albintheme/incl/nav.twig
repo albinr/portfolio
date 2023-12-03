@@ -28,11 +28,13 @@
                     </li>
                 {% endfor %}
                 {# <li><a href="?action=theme">Swap theme</a></li> #}
-                <li><a href="?action=theme" role="button">
+                <li><a class="theme-switch" href="?action=theme" role="button">
                 {% if config.session.theme == "dark" %}
-                <i class="fas fa-toggle-off"></i>
+                {# <i class="fas fa-toggle-off"></i> #}
+                <i class="fas fa-moon"></i>
                 {% else %}
-                <i class="fas fa-toggle-on"></i>
+                {# <i class="fas fa-toggle-on"></i> #}
+                <i class="fas fa-sun"></i>
                 {% endif %}
                 </a></li>
             </ul>

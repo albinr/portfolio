@@ -44,4 +44,13 @@ Test page
     background-color: #0f0;
     color: #fff;
     </p>
-</div> -->
+</div>
+
+![me](%base_url%/image/movement.jpg?width=50%&f=negate)
+![me](%base_url%/image/movement.jpg?width=50%&f=colorize,80,0,0,0)
+![me](%base_url%/image/movement.jpg?width=50%&f=emboss)
+
+
+![me](%base_url%/image/movement.png?width=50%&save-as=jpg)
+![me](%base_url%/image/movement.png?width=50%&q=1)
+ -->
