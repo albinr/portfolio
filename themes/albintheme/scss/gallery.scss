@@ -10,8 +10,7 @@
 }
 
 .image-box {
-    height: 260px;
-    // width: 260px;
+    width: 100%;
     grid-column: span 1;
     grid-row: span 1;
     border: 1px solid transparent;
@@ -55,7 +54,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .image-box {
         grid-column: span 3;
     }

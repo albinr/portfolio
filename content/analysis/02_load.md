@@ -31,13 +31,6 @@ För att mäta webbsidornas prestanda gör jag på detta sätt:
 Resultat
 -----------------------
 Här är resultatet av mätningarna.
-<!-- <div class="embed-container">
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQVZd9ygdW_on6ZBPUWKA4VL8q_BrTXU6eG6uYojR7l_hfNO2zTfy7S4xE0HLA5LFJBlCvvtH5HokSs/pubhtml?widget=true&amp;headers=false"></iframe>
-</div> -->
-
-<!-- <div class="embed-container">
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzwTNvn2C5VTGODyiJOCbuMFhtp7OeC7rX5ESttKiSWQkkWVJtZiwZWgplzyKJi5pG5oYkfMnlPK_R/pubhtml?widget=true&amp;headers=false"></iframe>
-</div> -->
 
 <div class="embed-container">
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiMAJBXJtkWPdLGbNHAzIU1Xi6F1tT9xDfXFQs10Y1qdLabA5YUyk78rqjcbYeVJRj0h8Mkqa17KGR/pubhtml?widget=true&amp;headers=false"></iframe>
