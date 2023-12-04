@@ -30,4 +30,4 @@ När jag inte sitter framför datorn och pluggar eller spelar så gillar jag att
 
 Jag ser fram emot att lära mig hur jag designar och skriver smart css för webbsidor. -->
 
-![me](%base_url%/image/me-at-summit.jpg?width=100%&q=50 "Image of me in Norway") {.me-img}
+![me](%base_url%/image/gallery/me-at-summit.jpg?width=100%&q=50 "Image of me in Norway") {.me-img}
