@@ -62,5 +62,5 @@ Description: This is our gallery page.
 </div>
 
 <div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/qhQDX21YCZ0" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/qhQDX21YCZ0" title="video" frameborder="0" allowfullscreen></iframe>
 </div>

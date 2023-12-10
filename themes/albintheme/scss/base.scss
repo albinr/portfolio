@@ -1,4 +1,4 @@
-body{
+body {
     background-color: $background-color;
     // background-image: $background-color;
     overflow-y: scroll;
@@ -9,7 +9,10 @@ img:not([alt]) {
     outline: 4px #f00 dashed !important;
 }
 
-img, embed, object, video {
+img,
+embed,
+object,
+video {
     max-width: 100%;
     // height: 100%;
 }
@@ -44,4 +47,14 @@ picture {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+::selection {
+    background: $the-orange;
+    /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+    background: $the-orange;
+    /* Gecko Browsers */
 }

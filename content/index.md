@@ -1,5 +1,5 @@
 ---
-Title: Albin Ryberg
+Title: Me
 Description: This is our index page.
 ---
 
@@ -30,4 +30,10 @@ När jag inte sitter framför datorn och pluggar eller spelar så gillar jag att
 
 Jag ser fram emot att lära mig hur jag designar och skriver smart css för webbsidor. -->
 
-![me](%base_url%/image/gallery/me-at-summit.jpg?width=100%&q=50 "Image of me in Norway") {.me-img}
+<!-- ![me](%base_url%/image/gallery/me-at-summit.jpg?q=50 "Image of me in Norway") {.me-img} -->
+<div class="me-img">
+<picture>
+    <source media="(min-width: 767px)" srcset="image/gallery/me-at-summit.jpg?crop-to-fit, image/gallery/me-at-summit.jpg?w=650&h=650&crop-to-fit 2x">
+    <img src="image/gallery/me-at-summit.jpg?w=766&h=766&crop-to-fit" alt="the way up">
+</picture>
+</div>
