@@ -1,7 +1,7 @@
 .gallery {
     display: grid;
-    gap: 10px 10px;
-    margin-bottom: 10px;
+    gap: 25px 25px;
+    margin-bottom: 25px;
 }
 
 .gallery h1 {
@@ -16,12 +16,13 @@
     border-radius: 8px;
     overflow: hidden;
     transition: 0.2s;
+    box-shadow: $shadow;
 }
 
 .image-box:hover {
     transform: translateY(-5px);
     // border: 1px solid $light-accent-color;
-    filter: drop-shadow(0 0 0.85rem $accent-color);
+    filter: drop-shadow(0 0 0.85rem $light-accent-color);
 }
 
 .image-box img {
@@ -41,6 +42,8 @@
     height: 0;
     overflow: hidden;
     max-width: 100%;
+    box-shadow: $shadow;
+    
 }
 
 .embed-container iframe,

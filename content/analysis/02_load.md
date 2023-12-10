@@ -37,13 +37,13 @@ Här är resultatet av mätningarna.
 </div>
 
 <h3>Steam</h3>
-<img src="%base_url%/image/steam.png" alt="Bild på Steams webbsida" style="max-width: 100%;"></img>
+<img class="shadow" src="%base_url%/image/steam.png" alt="Bild på Steams webbsida" style="max-width: 100%;"></img>
 
 <h3>Epic Games</h3>
-<img src="%base_url%/image/epicGames.png" alt="Bild på Epic Games webbsida" style="max-width: 100%;"></img>
+<img class="shadow" src="%base_url%/image/epicGames.png" alt="Bild på Epic Games webbsida" style="max-width: 100%;"></img>
 
 <h3>Battle.net</h3>
-<img src="%base_url%/image/battle-net.png" alt="Bild på Battle.nets webbsida" style="max-width: 100%;"></img>
+<img class="shadow" src="%base_url%/image/battle-net.png" alt="Bild på Battle.nets webbsida" style="max-width: 100%;"></img>
 
 Analys
 -----------------------

@@ -7,11 +7,12 @@
     margin-top: 10px;
     padding: 0 12px;
     background-color: $surface;
-    border-top: 1px solid $gray-color;
-    border-left: 1px solid $gray-color;
-    border-right: 1px solid $gray-color;
+    // border-top: 1px solid $gray-color;
+    // border-left: 1px solid $gray-color;
+    // border-right: 1px solid $gray-color;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    box-shadow: $shadow;
 }
 
 .footer p{
