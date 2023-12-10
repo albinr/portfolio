@@ -35,8 +35,21 @@
     width: 100%;
 }
 
+.add{
+    display: none;
+}
+
 @media (max-width: 767px) {
     .span-grow{
         grid-column: span 4;
+        justify-self: center;
+    }
+
+    .remove{
+        display: none;
+    }
+    
+    .add{
+        display: inline;
     }
 }

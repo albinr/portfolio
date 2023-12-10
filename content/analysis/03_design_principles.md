@@ -21,7 +21,7 @@ Resultat
 -----------------------
 <div class="report-grid">
     <h2 class="span-4 center"><a href="https://v4.brittanychiang.com/">Brittany Chiang</a></h2>
-    <div class="span-2">
+    <div class="span-2 span-grow">
     <h3>Mål och syfte</h3>
     <p>Brittany Chiangs webbsida är en portfolio för att visa upp hennes arbete som frontend mjukvaruingenjör. Hon har kort information om sig själv, job erfarenheter, kontaktinformation och sitt CV på webbplatsen.</p>
     <h3>Design</h3>
@@ -34,17 +34,17 @@ Resultat
     <p>Balance: Sidan balanseras med bilder på olika sidor.</p>
     <p>Designprinciperna som färändras är layout och direction. Varje section av webbsidan har annorlunda layout beroende på vad som ska visas.</p>
     </div>
-    <a href="%base_url%/image/design_p/bc.png" class="span-2">
+    <a href="%base_url%/image/design_p/bc.png" class="span-2 span-grow">
         <img width="390" height="1200"src="%base_url%/image/design_p/bc.png?w=400&h=1200" alt="Brittany Chiangs webbsite">
     </a>
 </div>
 
 <div class="report-grid">
     <h2 class="span-4 center"><a href="https://hankgreen.com/">Hank Green</a></h2>
-    <a href="%base_url%/image/design_p/hg.png" class="span-2">
-        <img width="500" height="700" src="%base_url%/image/design_p/hg.png?w=400&h=700 " alt="Hank Green webbsite">
+    <a href="%base_url%/image/design_p/hg.png" class="span-2 span-grow remove">
+        <img width="500" height="700" src="%base_url%/image/design_p/hg.png?w=400&h=700" alt="Hank Green webbsite">
     </a>
-    <div class="span-2">
+    <div class="span-2 span-grow">
     <h3>Mål och syfte</h3>
     <p>Webbplatsens mål och syfte är att visa arbete och reklam för sig själv. Hank Green är internetkändis, Youtuber och författare. Första sidan visar ett stor bild på sig själv och en slogan “Make Things, Learn stuff”</p>
     <h3>Design</h3>
@@ -56,11 +56,14 @@ Resultat
     <p>Balance: Sidan balanseras med bilder på olika sidor.</p>
     <p>Hela webbplatsen använder lika designprinciper tycker jag. Layouten flippas bara och den blåa färgen dyker up i underrubrikerna.</p>
     </div>
+    <a href="%base_url%/image/design_p/hg.png" class="span-2 span-grow add">
+        <img width="500" height="700" src="%base_url%/image/design_p/hg.png?w=400&h=700" alt="Hank Green webbsite">
+    </a>
 </div>
 
 <div class="report-grid">
     <h2 class="span-4 center"><a href="https://www.mackenziechild.me/">Mackenzie Child</a></h2>
-    <div class="span-2">
+    <div class="span-2 span-grow">
     <h3>Mål och syfte</h3>
     <p>Mackenzie Childs webbplats är en design-portfolio, blog och shop. Den används för att visa vad han skapat, sälja designer och skapa kontakt.</p>
     <h3>Design</h3>
@@ -73,7 +76,7 @@ Resultat
     <p>Movement: Delar av webbplatsen glider in i vy på försa laddning som tillexempel navbar och logga, när man skrollar ner så skjuts boxar med info upp.</p>
     <p>Det finns tre separata sidor på webbplatsen som alla använder de tjocka linjerna. Det ända som förändras är lite av layouten.</p>
     </div>
-    <a href="%base_url%/image/design_p/mc.png" class="span-2">
+    <a href="%base_url%/image/design_p/mc.png" class="span-2 span-grow">
         <img width="390" height="700" src="%base_url%/image/design_p/mc.png?w=400&h=700" alt="Mackenzie Child webbsite">
     </a>
 </div>
