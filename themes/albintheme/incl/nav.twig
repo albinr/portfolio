@@ -3,7 +3,7 @@
         {% if pages["_meta"].meta.logo %}
         <div class="logo">
             <a href="{{ base_url }}" aria-label="To front page">
-                <img src="{{ base_url }}/{{ pages["_meta"].meta.logo|url }}" alt="" />
+                <img src="{{ base_url }}/{{ pages["_meta"].meta.logo|url }}" alt="image of me" />
             </a>
         </div>
         {% endif %}
@@ -28,7 +28,7 @@
                     </li>
                 {% endfor %}
                 {# <li><a href="?action=theme">Swap theme</a></li> #}
-                <li><a class="theme-switch" href="?action=theme" role="button">
+                <li><a class="theme-switch" href="?action=theme" role="button" aria-label="Switch theme">
                 {% if config.session.theme == "dark" %}
                 {# <i class="fas fa-toggle-off"></i> #}
                 <i class="fas fa-moon"></i>

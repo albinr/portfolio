@@ -33,7 +33,7 @@ Resultat
 Här är resultatet av mätningarna.
 
 <div class="embed-container">
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiMAJBXJtkWPdLGbNHAzIU1Xi6F1tT9xDfXFQs10Y1qdLabA5YUyk78rqjcbYeVJRj0h8Mkqa17KGR/pubhtml?widget=true&amp;headers=false"></iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQiMAJBXJtkWPdLGbNHAzIU1Xi6F1tT9xDfXFQs10Y1qdLabA5YUyk78rqjcbYeVJRj0h8Mkqa17KGR/pubhtml?widget=true&amp;headers=false" title="spreadsheet with load times"></iframe>
 </div>
 
 <h3>Steam</h3>

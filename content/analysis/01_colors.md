@@ -66,7 +66,7 @@ Resultat
         <td style="height: 50px; width: 50px; background-color: #F2A71B">
     </tr>
 </table>
-<img src="%assets_url%/img/discord.png" alt="Bild på discords webbsida" style="max-width: 100%;"></img>
+<img src="%base_url%/image/discord.png" alt="Bild på discords webbsida" style="max-width: 100%;"></img>
 
 <h3>Skype</h3>
 <table style="border-spacing: 4px; border-collapse: separate">
@@ -77,7 +77,7 @@ Resultat
         <td style="height: 50px; width: 50px; background-color: #FFFFFF">
     </tr>
 </table>
-<img src="%assets_url%/img/skype.png" alt="Bild på skypes webbsida" style="max-width: 100%;"></img>
+<img src="%base_url%/image/skype.png" alt="Bild på skypes webbsida" style="max-width: 100%;"></img>
 
 <h3>Slack</h3>
 <table style="border-spacing: 4px; border-collapse: separate">
@@ -88,7 +88,7 @@ Resultat
         <td style="height: 50px; width: 50px; background-color: #ECB22D">
     </tr>
 </table>
-<img src="%assets_url%/img/slack.png" alt="Bild på slack webbsida" style="max-width: 100%;"></img>
+<img src="%base_url%/image/slack.png" alt="Bild på slack webbsida" style="max-width: 100%;"></img>
 
 
 

@@ -7,6 +7,8 @@
 
 .report-grid a{
     max-width: 390px;
+    max-height: 800px;
+    overflow: hidden;
 }
 
 .span-4 {
@@ -31,4 +33,10 @@
 
 .fill-width{
     width: 100%;
+}
+
+@media (max-width: 767px) {
+    .span-grow{
+        grid-column: span 4;
+    }
 }

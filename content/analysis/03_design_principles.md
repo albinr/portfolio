@@ -35,14 +35,14 @@ Resultat
     <p>Designprinciperna som färändras är layout och direction. Varje section av webbsidan har annorlunda layout beroende på vad som ska visas.</p>
     </div>
     <a href="%base_url%/image/design_p/bc.png" class="span-2">
-        <img src="%base_url%/image/design_p/bc.png" alt="Brittany Chiangs webbsite">
+        <img width="390" height="1200"src="%base_url%/image/design_p/bc.png?w=400&h=1200" alt="Brittany Chiangs webbsite">
     </a>
 </div>
 
 <div class="report-grid">
     <h2 class="span-4 center"><a href="https://hankgreen.com/">Hank Green</a></h2>
     <a href="%base_url%/image/design_p/hg.png" class="span-2">
-        <img src="%base_url%/image/design_p/hg.png" alt="Hank Green webbsite">
+        <img width="500" height="700" src="%base_url%/image/design_p/hg.png?w=400&h=700 " alt="Hank Green webbsite">
     </a>
     <div class="span-2">
     <h3>Mål och syfte</h3>
@@ -74,7 +74,7 @@ Resultat
     <p>Det finns tre separata sidor på webbplatsen som alla använder de tjocka linjerna. Det ända som förändras är lite av layouten.</p>
     </div>
     <a href="%base_url%/image/design_p/mc.png" class="span-2">
-        <img src="%base_url%/image/design_p/mc.png" alt="Mackenzie Child webbsite">
+        <img width="390" height="700" src="%base_url%/image/design_p/mc.png?w=400&h=700" alt="Mackenzie Child webbsite">
     </a>
 </div>
 
@@ -98,6 +98,7 @@ Analys av urvalet
 <h3>Uppdateringar jag gjort</h3>
 - Jag har ökat bredden på body elementet med 200px för att utnyttja mer utrymme på skärmen.
 - I layouten för den här rapporten har jag försökt använda mig av balans principen med hjälp utav grid.
+- Uppdaterat första sidans layout
 
 
 Övrigt
