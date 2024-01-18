@@ -23,3 +23,15 @@ Load
 Design principles
 </a>
 </div>
+
+<div class="box css">
+<a href="%base_url%?analysis/10_webbplatsdesign">
+Webbplatsdesign
+</a>
+</div>
+
+<div class="box python">
+<a href="%base_url%?analysis/11_design-och-webbplatser">
+Design och webbplatser
+</a>
+</div>

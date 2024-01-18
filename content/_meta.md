@@ -1,6 +1,5 @@
 ---
 Logo: image/me.jpg
-Tagline:
 Social:
     - title: Link till sidans github repo.
       url: https://github.com/albinr/portfolio/
