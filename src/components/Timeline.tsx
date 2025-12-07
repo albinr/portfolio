@@ -21,7 +21,7 @@ const timelineData: TimelineItem[] = [
     date: new Date("2023-05-30"),
     title: "C2 Security Application Project",
     type: "project",
-    description: "Built a full Command and Control app for the Swedish Blue Team. Developed a Python/Quart backend and Tkinter/WebSocket-based client."
+    description: "Built a Command and Control app. Developed a Python/Quart backend and Tkinter/WebSocket-based client."
   },
   {
     date: new Date("2023-11-15"),
