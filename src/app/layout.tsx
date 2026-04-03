@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
 import { ThemeProvider } from "@/components/ThemeProvider"; // NEW
 import AIChatBot from "@/components/AIChatBot";
+import SpotlightShell from "@/components/SpotlightShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,10 +44,12 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider>
-          <Header />
-          <SocialLinks />
-          <main className="max-w-4xl mx-auto p-4">{children}</main>
-          <Footer />
+          <SpotlightShell>
+            <Header />
+            <SocialLinks />
+            <main className="max-w-4xl mx-auto p-4">{children}</main>
+            <Footer />
+          </SpotlightShell>
         </ThemeProvider>
       </body>
     </html>
