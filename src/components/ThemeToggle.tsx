@@ -19,7 +19,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full border border-[var(--foreground)] hover:scale-105 transition"
+      className="hover:scale-105 transition"
       aria-label="Toggle theme"
       title="Toggle light/dark mode"
     >

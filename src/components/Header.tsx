@@ -44,7 +44,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-          scrolled ? "border-b bg-glass shadow-md" : "border-b-0"
+          scrolled ? "bg-glass shadow-md" : "border-b-0"
         }`}
         style={{
           borderColor: "var(--foreground)",
