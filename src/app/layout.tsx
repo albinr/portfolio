@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   },
 };
 
+// <AIChatBot /> // AI chatbot component
+
+
 export default function RootLayout({
   children,
 }: {
@@ -43,7 +46,6 @@ export default function RootLayout({
           <Header />
           <SocialLinks />
           <main className="max-w-4xl mx-auto p-4">{children}</main>
-          <AIChatBot />
           <Footer />
         </ThemeProvider>
       </body>
