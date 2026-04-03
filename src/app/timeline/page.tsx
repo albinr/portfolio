@@ -13,7 +13,7 @@ export type TimelineItem = {
 const timelineData: TimelineItem[] = [
   {
     date: new Date("2022-08-20"),
-    title: "Started BSc Web Programming at BTH",
+    title: "Started BSc Web Development at BTH",
     type: "education",
     description: "Began 3-year Bachelor's program focused on full-stack web development, modern frameworks, and agile workflows."
   },
@@ -21,7 +21,7 @@ const timelineData: TimelineItem[] = [
     date: new Date("2023-05-30"),
     title: "C2 Security Application Project",
     type: "project",
-    description: "Built a full Command and Control app for the Swedish Blue Team. Developed a Python/Quart backend and Tkinter/WebSocket-based client."
+    description: "Built a full Command and Control app. Developed a Python/Quart backend and Tkinter/WebSocket-based client."
   },
   {
     date: new Date("2023-11-15"),
@@ -33,7 +33,7 @@ const timelineData: TimelineItem[] = [
     date: new Date("2024-06-01"),
     title: "Started AI Trading Bot (Stonkbot)",
     type: "project",
-    description: "Launched personal summer project to build a reinforcement learning-based trading bot using Python and Flask."
+    description: "Personal summer project to build a reinforcement learning-based trading bot using Python and Flask."
   }
 ];
 

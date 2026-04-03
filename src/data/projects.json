@@ -16,7 +16,7 @@
   {
     "title": "C2App",
     "description": "Command & Control application with Flask server and Python client for monitoring remote devices.",
-    "role": "Sole developer (individual project)",
+    "role": "Sole developer (individual project course)",
     "tech": ["Flask", "Python", "WebSockets", "Tkinter"],
     "link": "https://github.com/albinr/c2app-client"
   },

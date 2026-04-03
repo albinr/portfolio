@@ -20,8 +20,7 @@ export default function Home() {
         <div>
           <h1 className="text-4xl font-bold mb-4">Hi, I’m Albin 👋</h1>
           <p className="text-lg text-muted mb-6">
-            Web developer building fast, accessible, and beautiful apps with
-            Next.js, TypeScript, and Tailwind CSS.
+            Web developer, Hiker, Skier, Runner and Gym goer.
           </p>
           <div className="flex gap-4">
             <Button href="/projects">View My Work</Button>

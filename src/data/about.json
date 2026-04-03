@@ -1,7 +1,7 @@
 {
   "name": "Albin Ryberg",
   "location": "Sweden",
-  "bio": "Web developer studying Web Programming at BTH. Passionate about frontend, backend, and AI.",
+  "bio": "Web developer studying Web Development at BTH. Passionate about frontend, backend, and web systems in general.",
   "hobbies": ["Skiing", "Hiking", "Gym", "Video games"],
   "skills": {
     "frontend": ["Next.js", "React", "Tailwind CSS", "TypeScript", "HTML", "CSS"],
@@ -10,6 +10,5 @@
   "socials": {
     "github": "https://github.com/albinr",
     "linkedin": "https://www.linkedin.com/in/albin-ryberg",
-    "website": "https://albinryberg.dev"
   }
 }
