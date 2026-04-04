@@ -28,7 +28,7 @@ export default function ContactPage() {
     setError("");
 
     try {
-      const res = await fetch("/", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -61,21 +61,6 @@ export default function ContactPage() {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20 sm:py-32 font-sans">
       <div className="max-w-xl w-full">
-        {/* Hidden blueprint form for Netlify detection */}
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          hidden
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <input name="name" type="text" />
-          <input name="email" type="email" />
-          <textarea name="message" />
-          <input name="bot-field" type="text" />
-        </form>
-
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-center">
           Contact Me
         </h1>
@@ -87,8 +72,6 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6"
           >
