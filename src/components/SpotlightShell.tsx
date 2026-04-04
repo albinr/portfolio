@@ -22,7 +22,7 @@ export default function SpotlightShell({
         className="pointer-events-none fixed inset-0 z-0"
         style={{
           background:
-            'radial-gradient(300px circle at var(--x, 50%) var(--y, 50%), rgba(56, 189, 248, 0.15), transparent 40%)',
+            'radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(56, 189, 248, 0.15), transparent 40%)',
         }}
       />
 

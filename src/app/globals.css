@@ -1,36 +1,85 @@
 @import "tailwindcss";
 
-/* Light mode custom properties */
-:root {
-  --background: theme(colors.white);
-  --foreground: theme(colors.zinc.900);
-  --glass: rgba(255, 255, 255, 0.6);
-  --glow: 0 0 20px theme(colors.blue.500 / 0.5);
-
-  --font-sans: theme(fontFamily.sans);
-  --font-mono: theme(fontFamily.mono);
-
-  --color-primary: theme(colors.zinc.900);
-  --color-secondary: theme(colors.zinc.600);
-  --color-muted: theme(colors.zinc.500);
+/* Makes Tailwind's font-sans / font-mono use your next/font variables */
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-/* Dark theme override */
+/* Makes Tailwind dark: utilities follow data-theme="dark" */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Light mode */
+:root {
+  --background: #ffffff;
+  --foreground: #18181b;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glow: 0 0 20px rgba(59, 130, 246, 0.35);
+
+  --color-primary: #18181b;
+  --color-secondary: #52525b;
+  --color-muted: #71717a;
+
+  --grid-dot: rgba(24, 24, 27, 0.14);
+  --grid-size: 24px;
+  --grid-dot-size: 1.2px;
+  --grid-fade: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0)
+  );
+
+  /* Used by your spotlight overlay if you want theme-aware glow */
+  --spotlight-color: rgba(56, 189, 248, 0.14);
+}
+
+/* Dark mode */
 [data-theme="dark"] {
-  --background: theme(colors.zinc.950);
-  --foreground: theme(colors.zinc.100);
+  --background: #09090b;
+  --foreground: #f4f4f5;
   --glass: rgba(24, 24, 27, 0.5);
 
-  --color-primary: theme(colors.zinc.100);
-  --color-secondary: theme(colors.zinc.400);
-  --color-muted: theme(colors.zinc.500);
+  --color-primary: #f4f4f5;
+  --color-secondary: #a1a1aa;
+  --color-muted: #71717a;
+
+  --grid-dot: rgba(255, 255, 255, 0.1);
+  --grid-fade: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0)
+  );
+
+  --spotlight-color: rgba(56, 189, 248, 0.1);
 }
 
-/* Example usage */
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   background-color: var(--background);
-  color: var(--text-primary);
+  color: var(--foreground);
   font-family: var(--font-sans);
+
+  /* Site-wide dotted grid */
+  background-image:
+    var(--grid-fade),
+    radial-gradient(
+      circle,
+      var(--grid-dot) var(--grid-dot-size),
+      transparent calc(var(--grid-dot-size) + 0.2px)
+    );
+  background-size:
+    100% 100%,
+    var(--grid-size) var(--grid-size);
+  background-position:
+    center,
+    center;
+  background-repeat:
+    no-repeat,
+    repeat;
 }
 
 main {
@@ -60,8 +109,6 @@ main {
   20% {
     transform: translateY(0);
   }
-
-  /* Wait from 20% to 100% (5 seconds total duration) */
 }
 
 .animate-bounce-twice-wait {
@@ -69,7 +116,7 @@ main {
 }
 
 .markdown {
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -77,35 +124,31 @@ main {
 .markdown h2,
 .markdown h3 {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--foreground);
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .markdown h1 {
   font-size: 1.5rem;
-} /* text-2xl */
+}
+
 .markdown h2 {
   font-size: 1.25rem;
-} /* text-xl */
+}
+
 .markdown h3 {
   font-size: 1.125rem;
-} /* text-lg */
-
-/* .markdown p {
-  margin-bottom: 0.75rem;
-} */
+}
 
 .markdown ul {
   list-style: disc;
   margin-left: 1.5rem;
-  /* margin-bottom: 0.75rem; */
 }
 
 .markdown ol {
   list-style: decimal;
   margin-left: 1.5rem;
-  /* margin-bottom: 0.75rem; */
 }
 
 .markdown li {
@@ -113,11 +156,12 @@ main {
 }
 
 .markdown a {
-  color: theme("colors.blue.600");
+  color: #2563eb;
   text-decoration: underline;
 }
+
 [data-theme="dark"] .markdown a {
-  color: theme("colors.blue.400");
+  color: #60a5fa;
 }
 
 .markdown pre {
@@ -128,6 +172,7 @@ main {
   font-family: var(--font-mono);
   margin-bottom: 1rem;
 }
+
 [data-theme="dark"] .markdown pre {
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -139,13 +184,13 @@ main {
   font-family: var(--font-mono);
   font-size: 0.85em;
 }
+
 [data-theme="dark"] .markdown code {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
 .page-transition {
   opacity: 0;
-  /* background: black; */
   transform: translateY(40px);
   filter: blur(12px);
 }

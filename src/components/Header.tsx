@@ -42,16 +42,16 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-          scrolled ? "bg-glass shadow-md" : "border-b-0"
-        }`}
-        style={{
-          borderColor: "var(--foreground)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-        }}
-      >
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+        scrolled ? "shadow-md" : ""
+      }`}
+      style={{
+        backgroundColor: scrolled ? "var(--glass)" : "transparent",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(8px)" : "none",
+      }}
+    >
         <nav className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link
             href="/"
