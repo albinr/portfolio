@@ -1,5 +1,5 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="text-center text-sm text-muted mt-10 py-6">
@@ -11,7 +11,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Github
+          <FaGithub
             size={18}
             className="hover:text-foreground transition-colors"
           />
@@ -21,7 +21,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Linkedin
+          <FaLinkedinIn
             size={18}
             className="hover:text-foreground transition-colors"
           />

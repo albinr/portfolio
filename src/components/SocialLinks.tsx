@@ -1,12 +1,13 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 
 const socials = [
-  { name: "GitHub", href: "https://github.com/albinr", icon: Github },
+  { name: "GitHub", href: "https://github.com/albinr", icon: FaGithub },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/albin-ryberg",
-    icon: Linkedin,
+    icon: FaLinkedinIn,
   },
   { name: "Email", href: "mailto:albin@rybergs.net", icon: Mail },
 ];
