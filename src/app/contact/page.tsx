@@ -81,6 +81,7 @@ export default function ContactPage() {
               method="POST"
               onSubmit={handleSubmit}
               className="space-y-5"
+              netlify
             >
               <input type="hidden" name="form-name" value="contact" />
 
