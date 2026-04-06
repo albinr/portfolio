@@ -17,34 +17,36 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-full font-medium transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--foreground)] active:scale-95";
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium tracking-tight transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
-  const padding = "px-6 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base";
+  const size = "h-11 px-5 text-sm sm:h-12 sm:px-6 sm:text-[15px]";
 
-  const variants: Record<string, string> = {
+  const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
     primary: `
       bg-[var(--foreground)]
       text-[var(--background)]
-      hover:opacity-90
       shadow-[var(--glow)]
+      hover:-translate-y-0.5
+      hover:opacity-95
     `,
     outline: `
-      border border-[var(--foreground)]
-      text-[var(--foreground)]
+      border
+      border-[var(--foreground)]/15
       bg-transparent
-      hover:bg-[var(--foreground)]
-      hover:text-[var(--background)]
+      text-[var(--foreground)]
+      hover:-translate-y-0.5
+      hover:bg-[var(--foreground)]/6
+      hover:border-[var(--foreground)]/30
     `,
     ghost: `
+      bg-[var(--foreground)]/6
       text-[var(--foreground)]
-      bg-transparent
-      hover:bg-[var(--foreground)]
-      hover:text-[var(--background)]
+      hover:-translate-y-0.5
+      hover:bg-[var(--foreground)]/12
     `,
   };
 
-  const combined =
-    `${base} ${padding} ${variants[variant]} ${className}`.trim();
+  const combined = `${base} ${size} ${variants[variant]} ${className}`.trim();
 
   if (href) {
     return (

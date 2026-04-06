@@ -35,43 +35,52 @@ export default function ProjectCard({
     }).format(new Date(date));
 
   return (
-    <div className="bg-glass backdrop-blur-soft border rounded-xl shadow-md hover:shadow-glow transition p-6">
-      <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xl font-semibold text-foreground">
-          {title}
-        </h2>
-        <div className="flex gap-3">
+    <article className="rounded-2xl border border-black/10 bg-[var(--background)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10">
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h2 className="truncate text-xl font-semibold tracking-tight text-[var(--foreground)]">
+            {title}
+          </h2>
+          <p className="mt-1 text-sm text-[var(--foreground)]/55">
+            Created {formatDate(created_at)}
+          </p>
+        </div>
+
+        <div className="flex shrink-0 items-center gap-2">
           {homepage && (
             <Link
               href={homepage}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
+              aria-label={`Open live site for ${title}`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-[var(--foreground)]/75 transition hover:bg-black/5 hover:text-[var(--foreground)] dark:border-white/10 dark:hover:bg-white/10"
             >
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="h-4 w-4" />
             </Link>
           )}
+
           <Link
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            aria-label={`Open GitHub repository for ${title}`}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-[var(--foreground)]/75 transition hover:bg-black/5 hover:text-[var(--foreground)] dark:border-white/10 dark:hover:bg-white/10"
           >
-            <FaGithub className="w-5 h-5" />
+            <FaGithub className="h-4 w-4" />
           </Link>
         </div>
       </div>
 
-      <p className="mb-4">
+      <p className="mb-5 leading-7 text-[var(--foreground)]/75">
         {description || "No description provided."}
       </p>
 
       {tags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-3">
+        <div className="mb-5 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-1 bg-muted-light rounded"
+              className="rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs font-medium text-[var(--foreground)]/75 dark:border-white/10 dark:bg-white/[0.04]"
             >
               {tag}
             </span>
@@ -79,17 +88,18 @@ export default function ProjectCard({
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-4 text-sm mt-2">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-black/10 pt-4 text-sm text-[var(--foreground)]/60 dark:border-white/10">
         {language && (
-          <span className="text-xs px-2 py-1 rounded">
+          <span className="rounded-full bg-black/[0.04] px-2.5 py-1 text-xs font-medium text-[var(--foreground)] dark:bg-white/[0.05]">
             {language}
           </span>
         )}
-        {typeof stargazers_count === "number" && <span>⭐ {stargazers_count}</span>}
-        {typeof forks_count === "number" && <span>🍴 {forks_count}</span>}
-        <span>Created {formatDate(created_at)}</span>
+
+        {typeof stargazers_count === "number" && <span>★ {stargazers_count}</span>}
+        {typeof forks_count === "number" && <span>⑂ {forks_count}</span>}
+
         <span>Updated {formatDate(pushed_at)}</span>
       </div>
-    </div>
+    </article>
   );
 }

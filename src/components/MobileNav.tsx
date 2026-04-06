@@ -25,77 +25,98 @@ export default function MobileNav({
   const pathname = usePathname();
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Optional: click outside to close
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        closeMenu();
-      }
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
     };
 
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen, closeMenu]);
+
+  useEffect(() => {
+    if (isOpen) {
+      panelRef.current?.focus();
+    }
+  }, [isOpen]);
 
   return (
     <>
-      {/* Background overlay */}
+      {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/40 transition-opacity duration-300 z-40 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 sm:hidden ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
+        aria-hidden="true"
       />
 
-      {/* Slide-in panel */}
+      {/* Drawer */}
       <div
         ref={panelRef}
-        className={`fixed inset-0 z-50 sm:hidden transition-transform duration-300 transform ${
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+        className={`fixed right-0 top-0 z-50 flex h-dvh w-[85vw] max-w-sm flex-col border-l border-white/10 bg-[var(--background)]/90 shadow-2xl backdrop-blur-xl outline-none transition-transform duration-300 ease-out sm:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{
-          backgroundColor: "var(--glass)",
-          borderLeft: "1px solid var(--foreground)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-        }}
       >
-        {/* Close button */}
-        <button
-          onClick={closeMenu}
-          className="absolute top-4 right-4 p-2 rounded-full text-[var(--foreground)] hover:bg-[var(--foreground)]/10 transition"
-          aria-label="Close menu"
-        >
-          <X size={24} />
-        </button>
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 pt-5 pb-3">
+          <span className="text-sm font-medium tracking-wide text-[var(--foreground)]/60">
+            Menu
+          </span>
 
-        {/* Nav items */}
-        <ul className="flex flex-col items-center justify-center h-full gap-6 text-lg font-medium">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <TransitionLink
-                href={item.href}
-                onClick={closeMenu}
-                className={`transition ${
-                  pathname === item.href
-                    ? "text-blue-500"
-                    : "text-[var(--foreground)]/70 hover:text-[var(--foreground)]"
-                }`}
-              >
-                {item.label}
-              </TransitionLink>
-            </li>
-          ))}
-        </ul>
+          <button
+            onClick={closeMenu}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--foreground)] transition hover:bg-[var(--foreground)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]/30"
+            aria-label="Close menu"
+          >
+            <X size={22} />
+          </button>
+        </div>
 
-        {/* Theme toggle */}
-        <div className="absolute bottom-8 w-full flex justify-center">
-          <ThemeToggle />
+        {/* Nav */}
+        <nav className="flex-1 px-3 pb-6 pt-2">
+          <ul className="flex flex-col gap-1">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+
+              return (
+                <li key={item.href}>
+                  <TransitionLink
+                    href={item.href}
+                    onClick={closeMenu}
+                    className={`flex min-h-[52px] items-center rounded-2xl px-4 text-base font-medium transition-colors ${
+                      isActive
+                        ? "bg-[var(--foreground)] text-[var(--background)]"
+                        : "text-[var(--foreground)]/80 hover:bg-[var(--foreground)]/8 hover:text-[var(--foreground)]"
+                    }`}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </TransitionLink>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* Footer */}
+        <div className="border-t border-white/10 px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-[var(--foreground)]/60">Theme</span>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </>
