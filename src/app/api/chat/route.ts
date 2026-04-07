@@ -49,7 +49,7 @@ Always answer in a conversational and encouraging tone.
         { role: "system", content: context },
         { role: "user", content: message },
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-5.4-mini",
     });
 
     return NextResponse.json({ reply: chat.choices[0].message.content });
