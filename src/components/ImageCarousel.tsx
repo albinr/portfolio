@@ -12,8 +12,8 @@ type ImageCarouselProps = {
 
 export default function ImageCarousel({
   images,
-  width = 300,
-  height = 400,
+  width = 350,
+  height = 450,
   autoSwitchInterval = 6000,
 }: ImageCarouselProps) {
   const [index, setIndex] = useState(0);
