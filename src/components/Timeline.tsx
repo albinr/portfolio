@@ -1,9 +1,9 @@
-// components/Timeline.tsx
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export type TimelineItem = {
+  id: string;
   date: Date;
   title: string;
   type: "education" | "project";
@@ -12,72 +12,134 @@ export type TimelineItem = {
 
 const timelineData: TimelineItem[] = [
   {
-    date: new Date("2022-08-20"),
+    id: "bth-start",
+    date: new Date(2022, 7, 20),
     title: "Started BSc Web Programming at BTH",
     type: "education",
-    description: "Began 3-year Bachelor's program focused on full-stack web development, modern frameworks, and agile workflows."
+    description:
+      "Began a 3-year Bachelor's program focused on full-stack web development, modern frameworks, and agile workflows.",
   },
   {
-    date: new Date("2023-05-30"),
+    id: "c2-security-app",
+    date: new Date(2023, 4, 30),
     title: "C2 Security Application Project",
     type: "project",
-    description: "Built a Command and Control app. Developed a Python/Quart backend and Tkinter/WebSocket-based client."
+    description:
+      "Built a Command and Control app with a Python/Quart backend and a Tkinter/WebSocket-based client.",
   },
   {
-    date: new Date("2023-11-15"),
+    id: "studentpoolen-dashboard",
+    date: new Date(2023, 10, 15),
     title: "Studentpoolen Project – Admin Dashboard",
     type: "project",
-    description: "Created a modern admin interface using Next.js, Tailwind, and TypeScript. Integrated with Spring Boot backend and Auth0 for roles."
+    description:
+      "Created a modern admin interface with Next.js, Tailwind, and TypeScript, integrated with a Spring Boot backend and Auth0 roles.",
   },
   {
-    date: new Date("2024-06-01"),
+    id: "stonkbot-start",
+    date: new Date(2024, 5, 1),
     title: "Started AI Trading Bot (Stonkbot)",
     type: "project",
-    description: "Launched personal summer project to build a reinforcement learning-based trading bot using Python and Flask."
-  }
+    description:
+      "Started a personal summer project to build a reinforcement learning-based trading bot using Python and Flask.",
+  },
 ];
 
-export default function Timeline() {
-  const [filter, setFilter] = useState<"all" | "education" | "project">("all");
+const filters = ["all", "education", "project"] as const;
+type Filter = (typeof filters)[number];
 
-  const filtered =
-    filter === "all" ? timelineData : timelineData.filter((t) => t.type === filter);
+export default function Timeline() {
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const filtered = useMemo(() => {
+    const items =
+      filter === "all"
+        ? timelineData
+        : timelineData.filter((item) => item.type === filter);
+
+    return [...items].sort((a, b) => b.date.getTime() - a.date.getTime());
+  }, [filter]);
 
   const formatDate = (date: Date) => {
-    return date.toLocaleString("default", { month: "long", year: "numeric" });
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      year: "numeric",
+    }).format(date);
   };
 
   return (
-    <section className="w-full py-12 px-4">
-      <h2 className="text-2xl font-bold mb-6">My Journey</h2>
-
-      <div className="flex gap-4 mb-6">
-        {(["all", "education", "project"] as const).map((type) => (
-          <button
-            key={type}
-            onClick={() => setFilter(type)}
-            className={`px-4 py-2 rounded-full border ${
-              filter === type ? "bg-black text-white" : "bg-white text-black"
-            }`}
-          >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
-          </button>
-        ))}
+    <section className="w-full">
+      <div className="mb-8">
+        <p className="mb-2 text-sm font-medium uppercase tracking-[0.16em] text-[var(--foreground)]/50">
+          Timeline
+        </p>
+        <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)]">
+          My Journey
+        </h2>
       </div>
 
-      <div className="space-y-6 border-l-2 border-gray-300 pl-4">
-        {filtered.map((item, index) => (
-          <div key={index} className="relative ml-4">
-            <span className="absolute -left-4 top-2 w-3 h-3 bg-black rounded-full" />
-            <div className="bg-glass p-4 rounded-md shadow-md">
-              <p className="text-sm">
-                {formatDate(item.date)}
-              </p>
-              <h3 className="text-xl font-semibold mt-1">{item.title}</h3>
-              <p className="mt-2 text-sm ">{item.description}</p>
-            </div>
-          </div>
-        ))}
+      <div className="mb-8 flex flex-wrap gap-2">
+        {filters.map((type) => {
+          const active = filter === type;
+
+          return (
+            <button
+              key={type}
+              onClick={() => setFilter(type)}
+              className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${
+                active
+                  ? "border-[var(--foreground)] bg-[var(--foreground)] text-[var(--background)]"
+                  : "border-black/10 bg-[var(--background)] text-[var(--foreground)]/75 hover:border-black/20 hover:bg-black/[0.03] hover:text-[var(--foreground)] dark:border-white/10 dark:hover:border-white/20 dark:hover:bg-white/[0.04]"
+              }`}
+              aria-pressed={active}
+            >
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="relative pl-6 sm:pl-8">
+        <div className="absolute left-2 top-0 h-full w-px bg-black/10 dark:bg-white/10" />
+
+        <div className="space-y-6">
+          {filtered.map((item) => (
+            <article key={item.id} className="relative">
+              <span
+                className={`absolute -left-[1.1rem] top-7 h-3.5 w-3.5 rounded-full border-2 border-[var(--background)] ${
+                  item.type === "education"
+                    ? "bg-[var(--foreground)]"
+                    : "bg-transparent border-[var(--foreground)]"
+                }`}
+              />
+
+              <div className="rounded-2xl border border-black/10 bg-[var(--background)] p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 sm:p-6">
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <span className="text-sm text-[var(--foreground)]/55">
+                    {formatDate(item.date)}
+                  </span>
+                  <span
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                      item.type === "education"
+                        ? "bg-[var(--foreground)]/8 text-[var(--foreground)]"
+                        : "bg-black/[0.05] text-[var(--foreground)]/75 dark:bg-white/[0.06]"
+                    }`}
+                  >
+                    {item.type === "education" ? "Education" : "Project"}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-semibold tracking-tight text-[var(--foreground)] sm:text-xl">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 leading-7 text-[var(--foreground)]/72">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
