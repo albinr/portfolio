@@ -116,8 +116,8 @@ main {
 }
 
 .markdown {
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .markdown h1,
@@ -125,7 +125,7 @@ main {
 .markdown h3 {
   font-weight: 600;
   color: var(--foreground);
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   margin-bottom: 0.5rem;
 }
 
@@ -143,12 +143,12 @@ main {
 
 .markdown ul {
   list-style: disc;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 .markdown ol {
   list-style: decimal;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 .markdown li {
