@@ -20,6 +20,14 @@ const timelineData: TimelineItem[] = [
       "Began a 3-year Bachelor's program focused on full-stack web development, modern frameworks, and agile workflows.",
   },
   {
+    id: "kyh-start",
+    date: new Date(2020, 7, 17),
+    title: "Started Frontend Development at KYH",
+    type: "education",
+    description:
+      "Began a 2-year Higher Vocational Education program in Frontend Development.",
+  },
+  {
     id: "c2-security-app",
     date: new Date(2023, 4, 30),
     title: "C2 Security Application Project",

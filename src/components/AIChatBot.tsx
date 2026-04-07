@@ -1,27 +1,81 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { MessageCircle, X, Maximize2, Minimize2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, X, Maximize2, Minimize2, Send } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
+type ChatMessage = {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+};
+
+const initialMessage: ChatMessage = {
+  id: "welcome",
+  role: "assistant",
+  content: `Hi — I’m an AI assistant that can answer questions about Albin, his projects, skills, and experience.
+
+Try asking:
+- What technologies does Albin use?
+- What projects has he worked on?
+- How can I contact him?`,
+};
+
 export default function AIChatBot() {
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>(
-    []
-  );
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      setMessages([initialMessage]);
+    }
+  }, [isOpen, messages.length]);
 
-    const userMessage = { role: "user", content: input };
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isFullscreen) {
+          setIsFullscreen(false);
+        } else {
+          setIsOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    const timer = setTimeout(() => {
+      textareaRef.current?.focus();
+    }, 50);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(timer);
+    };
+  }, [isOpen, isFullscreen]);
+
+  const sendMessage = async () => {
+    const trimmed = input.trim();
+    if (!trimmed || loading) return;
+
+    const userMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: "user",
+      content: trimmed,
+    };
+
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
@@ -30,7 +84,7 @@ export default function AIChatBot() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ message: trimmed }),
       });
 
       if (!res.ok) {
@@ -38,119 +92,119 @@ export default function AIChatBot() {
       }
 
       const data = await res.json();
-      const botMessage = { role: "assistant", content: data.reply };
+
+      const botMessage: ChatMessage = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: data.reply,
+      };
+
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error("Client ChatBot Error:", err);
+
       setMessages((prev) => [
         ...prev,
         {
+          id: crypto.randomUUID(),
           role: "assistant",
           content:
-            "⚠️ Sorry, something went wrong while generating a response. Please try again later.",
+            "Sorry — something went wrong while generating a response. Please try again.",
         },
       ]);
     } finally {
       setLoading(false);
+      textareaRef.current?.focus();
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await sendMessage();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      sendMessage();
+      void sendMessage();
     }
   };
-
-  useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      setMessages([
-        {
-          role: "assistant",
-          content: `Hi there! 👋 I'm an AI assistant trained to answer questions about Albin — his projects, skills, experience, and more. Try asking:
-- **What tech does Albin use?**
-- **What’s his latest project?**
-- **Where can I contact him?**
-`,
-        },
-      ]);
-    }
-  }, [messages.length, isOpen]);
 
   return (
     <>
-      {/* Toggle Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-all shadow-md hover:shadow-xl ${
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={`fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-4 py-3 text-sm font-medium text-[var(--background)] shadow-lg transition-all hover:-translate-y-0.5 hover:opacity-95 ${
           !isOpen ? "animate-bounce-twice-wait" : ""
         }`}
         title="Ask the AI about Albin"
-        aria-label="Open chatbot"
+        aria-label={isOpen ? "Close chatbot" : "Open chatbot"}
       >
-        <MessageCircle className="w-5 h-5" />
-        <span className="hidden sm:inline font-semibold text-sm">
-          Chat with AlbinBot
-        </span>
+        <MessageCircle className="h-5 w-5" />
+        <span className="hidden sm:inline">Ask AlbinBot</span>
       </button>
 
-      {/* Chat Window */}
       {isOpen && (
         <div
           className={`fixed z-[60] ${
             isFullscreen
-              ? "top-0 left-0 w-full h-full flex items-center justify-center p-4"
+              ? "inset-0 bg-black/40 p-4"
               : "bottom-20 right-6"
           }`}
         >
           <div
-            className={`border border-[var(--foreground)]/20 shadow-lg backdrop-blur-md bg-[var(--glass)] ${
+            role="dialog"
+            aria-modal="true"
+            aria-label="AI chat about Albin"
+            className={`flex flex-col overflow-hidden border border-black/10 bg-[var(--background)] shadow-2xl dark:border-white/10 ${
               isFullscreen
-                ? "w-full max-w-screen-sm h-[90vh] rounded-xl flex flex-col"
-                : "w-[320px] sm:w-[380px] max-h-[80vh] rounded-2xl flex flex-col"
+                ? "mx-auto h-[90vh] w-full max-w-2xl rounded-2xl"
+                : "h-[580px] w-[360px] max-w-[calc(100vw-2rem)] rounded-2xl"
             }`}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-4 pt-4">
-              <h2 className="text-lg font-semibold text-[var(--text-primary)]">
-                🤖 Ask about Albin
-              </h2>
+            <div className="flex items-center justify-between border-b border-black/10 px-4 py-3 dark:border-white/10">
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--foreground)] sm:text-base">
+                  Ask about Albin
+                </h2>
+                <p className="text-xs text-[var(--foreground)]/55">
+                  Projects, skills, background, and contact info
+                </p>
+              </div>
 
-              <div className="flex gap-2">
+              <div className="flex items-center gap-1">
                 <button
-                  onClick={() => setIsFullscreen(!isFullscreen)}
-                  title={isFullscreen ? "Exit Fullscreen" : "Go Fullscreen"}
-                  aria-label={
-                    isFullscreen ? "Exit Fullscreen" : "Go Fullscreen"
-                  }
-                  className="p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition"
+                  onClick={() => setIsFullscreen((prev) => !prev)}
+                  title={isFullscreen ? "Exit fullscreen" : "Go fullscreen"}
+                  aria-label={isFullscreen ? "Exit fullscreen" : "Go fullscreen"}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--foreground)]/70 transition hover:bg-black/5 hover:text-[var(--foreground)] dark:hover:bg-white/10"
                 >
                   {isFullscreen ? (
-                    <Minimize2 className="w-5 h-5 text-[var(--text-primary)]" />
+                    <Minimize2 className="h-4 w-4" />
                   ) : (
-                    <Maximize2 className="w-5 h-5 text-[var(--text-primary)]" />
+                    <Maximize2 className="h-4 w-4" />
                   )}
                 </button>
+
                 <button
                   onClick={() => setIsOpen(false)}
-                  title="Close Chat"
-                  aria-label="Close Chat"
-                  className="p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition"
+                  title="Close chat"
+                  aria-label="Close chat"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--foreground)]/70 transition hover:bg-black/5 hover:text-[var(--foreground)] dark:hover:bg-white/10"
                 >
-                  <X className="w-5 h-5 text-[var(--text-primary)]" />
+                  <X className="h-4 w-4" />
                 </button>
               </div>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto space-y-2 px-4 py-2 text-sm">
-              {messages.map((msg, i) => (
+            <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+              {messages.map((msg) => (
                 <div
-                  key={i}
-                  className={`p-2 whitespace-pre-wrap rounded-md ${
+                  key={msg.id}
+                  className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 ${
                     msg.role === "user"
-                      ? "bg-[var(--foreground)] text-[var(--background)]"
-                      : "bg-[var(--background)] text-[var(--text-primary)] border border-[var(--foreground)]/10"
+                      ? "ml-auto bg-[var(--foreground)] text-[var(--background)]"
+                      : "border border-black/10 bg-black/[0.02] text-[var(--foreground)] dark:border-white/10 dark:bg-white/[0.03]"
                   }`}
                 >
                   <div className="markdown">
@@ -158,28 +212,46 @@ export default function AIChatBot() {
                   </div>
                 </div>
               ))}
+
               {loading && (
-                <div className="text-[var(--text-muted)]">Thinking...</div>
+                <div className="max-w-[88%] rounded-2xl border border-black/10 bg-black/[0.02] px-4 py-3 text-sm text-[var(--foreground)]/60 dark:border-white/10 dark:bg-white/[0.03]">
+                  Thinking...
+                </div>
               )}
+
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className="px-4 pb-4 pt-2 border-t border-[var(--foreground)]/10 flex gap-2">
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="e.g. What’s Albin’s background?"
-                className="flex-1 px-3 py-2 rounded-md border border-[var(--foreground)]/20 text-sm bg-[var(--background)] text-[var(--text-primary)]"
-              />
-              <button
-                onClick={sendMessage}
-                className="px-4 py-2 text-sm rounded-md bg-[var(--foreground)] text-[var(--background)] hover:opacity-90"
-              >
-                Send
-              </button>
-            </div>
+            <form
+              onSubmit={handleSubmit}
+              className="border-t border-black/10 px-4 py-3 dark:border-white/10"
+            >
+              <div className="flex items-end gap-2">
+                <textarea
+                  ref={textareaRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Ask about Albin..."
+                  rows={1}
+                  disabled={loading}
+                  className="max-h-32 min-h-[44px] flex-1 resize-none rounded-2xl border border-black/10 bg-transparent px-4 py-3 text-sm text-[var(--foreground)] outline-none transition placeholder:text-[var(--foreground)]/40 focus:border-[var(--foreground)]/25 dark:border-white/10"
+                />
+
+                <button
+                  type="submit"
+                  disabled={loading || !input.trim()}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--foreground)] text-[var(--background)] transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Send message"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </div>
+
+              <p className="mt-2 text-xs text-[var(--foreground)]/45">
+                Press Enter to send, Shift+Enter for a new line.
+              </p>
+            </form>
           </div>
         </div>
       )}
